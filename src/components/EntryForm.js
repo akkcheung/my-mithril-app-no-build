@@ -1,5 +1,7 @@
 window.EntryForm = function () {
 	let entry = Entry.vm()
+	let discount = 0
+	
 
 	function add () {
 		entry.volunteers.push( Entry.volunteerVM() )
@@ -29,7 +31,7 @@ window.EntryForm = function () {
 			m('h1', "New Entry"),
 			m('h3', "Please enter each volunteer's contact information:"),
 
-			entry.volunteers.map( function(volunteer, idx) {
+			/* entry.volunteers.map( function(volunteer, idx) {
 				return m('fieldset', [
 					m('legend', "Volunteer #" + (idx + 1)),
 					m('label', "Name:"),
@@ -48,7 +50,25 @@ window.EntryForm = function () {
 				])
 			}),
 
-			m('button', { onclick: add }, 'Add another volunteer'),
+			m('button', { onclick: add }, 'Add another volunteer'), */
+
+			m(Volunteers, {
+				add: add,
+				remove: remove,
+				volunteers: entry.volunteers
+			}),
+
+			m(Total, {
+				count: entry.volunteers.length,
+				discount: discount
+			}),
+
+			m(Coupon, {
+				onSuccess(newDiscount) {
+					discount = newDiscount
+				}
+			}),
+
 			m('br'),
 			m('button', { onclick: submit }, 'Submit'),
 			])

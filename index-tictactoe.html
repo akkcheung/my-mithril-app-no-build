@@ -1,29 +1,25 @@
 <!doctype html>
 <html>
 <head>
-  <link rel="stylesheet" href="style.css">
-	<title>Volunteer Events</title>
+    <link rel="stylesheet" href="style.css">
+
+	<title>Tic-Tac-Toe</title>
 </head>
 
 <body>
 
+<a href="https://mithril-examples.firebaseapp.com/">Link</a>
+
 <div id="app"></div>
 
 <script src="https://unpkg.com/mithril/mithril.js"></script>
-
-<script src="src/models/Entry.js"></script>
-
-<script src="src/components/EntryForm.js"></script>
-<script src="src/components/EntryList.js"></script>
-<script src="src/components/Volunteers.js"></script>
-<script src="src/components/Total.js"></script>
-<script src="src/components/Coupon.js"></script>
 
 <script src="src/models/TicTacToe.js"></script>
 <script src="src/components/Board.js"></script>
 
 <script>
 	// Seed some data
+	/*
 	Entry.create({
 		"enteredAt": 1443018758199,
 		"volunteers" : [
@@ -40,13 +36,10 @@
       { name: "Erl", email: "erl@example.com" },
     ]
   })
+	*/
 
 	m.route(document.getElementById('app'), '/', {
-		'/': EntryList,
-		'/list': EntryList,
-		'/entries/new': EntryForm,
-
-		'/board' : Board,
+		'/': Board,
 
 	})
 	
