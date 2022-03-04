@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+
+	<title>BookShop</title>
+</head>
+
+<body>
+
+<div id="app"></div>
+
+<script src="https://unpkg.com/mithril/mithril.js"></script>
+<script src="https://unpkg.com/mithril/stream/stream.js"></script>
+
+<script src="src/models/Book.js"></script>
+
+<script src="src/components/BookList.js"></script>
+<script src="src/components/Cart.js"></script>
+
+<script>
+
+	m.route(document.getElementById('app'), '/', {
+		'/': Cart,
+
+	})
+	
+</script>
+
+</body>
+</html>

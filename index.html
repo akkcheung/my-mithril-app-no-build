@@ -2,7 +2,7 @@
 <html>
 <head>
   <link rel="stylesheet" href="style.css">
-	<title>Volunteer Events</title>
+	<title>Mithril JS Demo</title>
 </head>
 
 <body>
@@ -10,9 +10,11 @@
 <div id="app"></div>
 
 <script src="https://unpkg.com/mithril/mithril.js"></script>
+<script src="https://unpkg.com/mithril/stream/stream.js"></script>
+
+<script src="src/Layout.js"></script>
 
 <script src="src/models/Entry.js"></script>
-
 <script src="src/components/EntryForm.js"></script>
 <script src="src/components/EntryList.js"></script>
 <script src="src/components/Volunteers.js"></script>
@@ -21,6 +23,10 @@
 
 <script src="src/models/TicTacToe.js"></script>
 <script src="src/components/Board.js"></script>
+
+<script src="src/models/Book.js"></script>
+<script src="src/components/BookList.js"></script>
+<script src="src/components/Cart.js"></script>
 
 <script>
 	// Seed some data
@@ -42,11 +48,33 @@
   })
 
 	m.route(document.getElementById('app'), '/', {
-		'/': EntryList,
-		'/list': EntryList,
-		'/entries/new': EntryForm,
+		'/': { 
+			render: function() {
+				return m(Layout, m(EntryList))
+			}
+		},
+		'/list': {  
+			render: function() {
+				return m(Layout, m(EntryList))
+			}
+		},
+		'/entries/new': { 
+			render: function() {
+				return m(Layout, m(EntryForm))
+			}
+		},
 
-		'/board' : Board,
+		'/board' : { 
+			render: function() {
+				return m(Layout, m(Board))
+			}
+		},
+
+		'/bookshop' : { 
+			render: function() {
+				return m(Layout, m(Cart))
+			}
+		},
 
 	})
 	
