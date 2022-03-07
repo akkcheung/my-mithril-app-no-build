@@ -2,6 +2,8 @@
 <html>
 <head>
   <link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
 	<title>Mithril JS Demo</title>
 </head>
 
@@ -27,6 +29,10 @@
 <script src="src/models/Book.js"></script>
 <script src="src/components/BookList.js"></script>
 <script src="src/components/Cart.js"></script>
+
+<script src="src/models/StopWatch.js"></script>
+<script src="src/components/StopWatchDisplay.js"></script>
+<script src="src/components/CompositeStopWatchDisplay.js"></script>
 
 <script>
 	// Seed some data
@@ -73,6 +79,12 @@
 		'/bookshop' : { 
 			render: function() {
 				return m(Layout, m(Cart))
+			}
+		},
+
+		'/stopwatch' : { 
+			render: function() {
+				return m(Layout, m(CompositeStopWatchDisplay))
 			}
 		},
 
