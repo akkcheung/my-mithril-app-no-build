@@ -28,11 +28,7 @@ window.Grid = function(){
 
 	const arr = [1,2,3,4,5,6,7,8,9]
 
-  // model.randomPosition = Math.floor(Math.random() * 9) + 1
-
-	WhacAMole.moveMole(model) // call setInterval
-
-  // console.log("from Grid -> " + model.randomPosition)
+	WhacAMole.actions.moveMole(model) // call setInterval
 
 	return {
 		view: function(){
@@ -41,22 +37,20 @@ window.Grid = function(){
 				m("p"),
 				m("button", {
 						 onclick(){
-							WhacAMole.reset(model)
+							WhacAMole.actions.reset(model)
 						}
 				}, "Reset"),
 
 				m("p"),
-				m("label", WhacAMole.getResult(model)),
+				m("label", WhacAMole.actions.getResult(model)),
 
 				m("p"),
-				m("label", WhacAMole.getTimeLeft(model)),
-
-				// m(Square),
+				m("label", WhacAMole.actions.getTimeLeft(model)),
 
 				m("p"),
 				m("div", {class: "grid"}, [ 
 
-				// m.redraw not work in child component
+				//todo: m.redraw not work in child component
 
 				/*
 				arr.map(function(id){
@@ -73,7 +67,6 @@ window.Grid = function(){
 						class: (id === model.randomPosition) ? "square mole" : "square" 
 						, id: id
 						, onclick(){
-							// alert("is clicked")
 							if (id === model.randomPosition)
 								model.result++ 
 						}
@@ -86,10 +79,10 @@ window.Grid = function(){
 		},
 		
 		onremove(){
-			WhacAMole.stop(model)
+			WhacAMole.actions.stop(model)
 		},
 	}
 }
 
-// m.mount(document.getElementById('app'), Square)
+//m.mount(document.getElementById('app'), Square)
 //m.mount(document.getElementById('app'), Grid)

@@ -9,53 +9,60 @@ WhacAMole.model = function(){
 	}
 }
 
-WhacAMole.getResult = function(model){
-	return "Your score is " + model.result
-}
+WhacAMole.actions = {
 
-WhacAMole.getRandomPosition = function(model){
+	getResult : function(model){
+		return "Your score is " + model.result
+	},
 
-	model.randomPosition = Math.floor(Math.random() * 9) + 1 
-	model.currentTime--
+	getRandomPosition : function(model){
 
-	if (model.currentTime === 0){
+		model.randomPosition = Math.floor(Math.random() * 9) + 1 
+		model.currentTime--
+
+		if (model.currentTime === 0){
+			clearInterval(model.interval)
+			alert('GAME OVER!')
+		}
+
+		m.redraw()
+		// console.log("from model -> " + model.randomPosition)
+
+	},	 
+
+	getTimeLeft : function(model){
+		return "Time left : " + model.currentTime
+	},
+
+	moveMole : function(model){
+
+		if (model.interval === null) {
+			 model.interval = setInterval( this.getRandomPosition
+			, 1000, model)
+		}
+	},
+
+	timer : function(){
+		const date = new Date()	
+		//console.log(date.toLocaleTimeString())
+	},
+
+	stop : function(model){
 		clearInterval(model.interval)
-		alert('GAME OVER!')
-	}
+		model.interval = null
+	},
 
-	m.redraw()
-	console.log("from model -> " + model.randomPosition)
+	reset : function(model){
+		model.result = 0
+		model.currentTime = 60
+
+		this.stop(model)
+		this.moveMole(model)
+	},
 
 }
 
-WhacAMole.getTimeLeft = function(model){
-	return "Time left : " + model.currentTime
-}
 
-WhacAMole.moveMole = function(model){
 
-	if (model.interval === null) {
-		 model.interval = setInterval( WhacAMole.getRandomPosition
-		, 1000, model)
-	}
-}
-	 // model.interval = setInterval(WhacAMole.timer, 3000)
 
-WhacAMole.timer = function(){
-	const date = new Date()	
-	console.log(date.toLocaleTimeString())
-}
 
-WhacAMole.stop = function(model){
-	clearInterval(model.interval)
-	model.interval = null
-}
-
-WhacAMole.reset = function(model){
-	model.result = 0
-	model.currentTime = 60
-
-	WhacAMole.stop(model)
-	WhacAMole.moveMole(model)
-	
-}
