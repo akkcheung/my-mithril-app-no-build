@@ -8,6 +8,7 @@ const Layout = {
 				m(m.route.Link, {href: "/board", "class": "btn"}, "Tic Tac Toe"),
 				m(m.route.Link, {href: "/bookshop", "class": "btn"}, "Book Shop"),
 				m(m.route.Link, {href: "/stopwatch", "class": "btn"}, "Stop Watch"),
+				m(m.route.Link, {href: "/whacamole", "class": "btn"}, "Whac-A-Mole"),
 			]),
 			m("section", vnode.children)
 		])

@@ -18,3 +18,8 @@ use :
 use :
 - closure component
 - Lifecycle hooks
+
+5. Whac A Mole
+- refactor using mithril framework 
+- origin source : https://github.com/kubowania/whac-a-mole
+
