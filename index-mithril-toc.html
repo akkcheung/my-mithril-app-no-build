@@ -2,6 +2,7 @@
 <html>
 <head>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style-whac-a-mole.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
 	<title>Mithril JS Demo</title>
@@ -13,6 +14,8 @@
 
 <script src="https://unpkg.com/mithril/mithril.js"></script>
 <script src="https://unpkg.com/mithril/stream/stream.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script src="src/Layout.js"></script>
 
@@ -33,6 +36,12 @@
 <script src="src/models/StopWatch.js"></script>
 <script src="src/components/StopWatchDisplay.js"></script>
 <script src="src/components/CompositeStopWatchDisplay.js"></script>
+
+<script src="src/models/Whac-a-mole.js"></script>
+<script src="src/components/Grid.js"></script>
+
+<script src="src/models/ChartApp.model.js"></script>
+<script src="src/components/ChartApp.BarChart.js"></script>
 
 <script>
 	// Seed some data
@@ -85,6 +94,18 @@
 		'/stopwatch' : { 
 			render: function() {
 				return m(Layout, m(CompositeStopWatchDisplay))
+			}
+		},
+
+		'/whacamole' : {
+			render: function() {
+				return m(Layout, m(Grid))
+			}
+		},
+
+		'/chart' : {
+			render: function() {
+				return m(Layout, m(ChartApp.BarChart))
 			}
 		},
 

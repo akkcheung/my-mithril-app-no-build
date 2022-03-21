@@ -23,3 +23,6 @@ use :
 - refactor using mithril framework 
 - origin source : https://github.com/kubowania/whac-a-mole
 
+6. Dynamic Chart
+- include Chart.js library
+- render canvas in component
