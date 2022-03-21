@@ -1,0 +1,25 @@
+
+<!doctype html>
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+
+	<title>Chart</title>
+</head>
+
+<body>
+<div id="app"></div>
+
+<script src="https://unpkg.com/mithril/mithril.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="src/models/ChartApp.model.js"></script>
+<script src="src/components/ChartApp.BarChart.js"></script>
+
+<script>
+	m.mount(document.getElementById('app'), ChartApp.BarChart)
+</script>
+
+</body>
+</html>
+
